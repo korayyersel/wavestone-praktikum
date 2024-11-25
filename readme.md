@@ -15,7 +15,7 @@
 -   **Environment:** Läuft in einer Docker-Instanz gemeinsam mit Backend. Docker Instanz wird auf "Cloud Run" (https://cloud.google.com/run?hl=en) gehostet.
 -   **Aufgabe:**
     -   Eine Benutzeroberfläche erstellen, um Daten anzuzeigen und hinzuzufügen.
-    -   Verwenden Sie REST-Aufrufe, um mit dem Backend zu kommunizieren.
+    -   Verwenden von REST-Aufrufen, um mit dem Backend zu kommunizieren.
 
 ### **Backend:**
 -   **Technologien:** Node.js (Express.js) oder Java (Spring)
