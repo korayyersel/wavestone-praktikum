@@ -12,14 +12,14 @@
 ## Technische Anforderungen
 ### **Frontend:**
 -   **Technologien:** React, Angular, Vue.js (up to you)
--   **Environment:** Läuft in einer Docker-Instanz gemeinsam mit Backend. Docker Instanz wird auf https://cloud.google.com/run?hl=en gehostet.
+-   **Environment:** Läuft in einer Docker-Instanz gemeinsam mit Backend. Docker Instanz wird auf "Cloud Run" (https://cloud.google.com/run?hl=en) gehostet.
 -   **Aufgabe:**
     -   Eine Benutzeroberfläche erstellen, um Daten anzuzeigen und hinzuzufügen.
     -   Verwenden Sie REST-Aufrufe, um mit dem Backend zu kommunizieren.
 
 ### **Backend:**
 -   **Technologien:** Node.js (Express.js) oder Java (Spring)
--   **Environment:** Läuft in einer Docker-Instanz gemeinsam mit Frontend. Docker Instanz wird auf https://cloud.google.com/run?hl=en gehostet.
+-   **Environment:** Läuft in einer Docker-Instanz gemeinsam mit Frontend. Docker Instanz wird auf "Cloud Run" (https://cloud.google.com/run?hl=en) gehostet.
 -   **Aufgabe:**
     -   Eine RESTful API mit mindestens zwei Endpunkten bereitstellen:
         1.  **GET /tasks:** Gibt eine Liste von gespeicherten Daten aus der MongoDB zurück.
@@ -33,7 +33,7 @@
 
 
 ### **Docker**
-Projektstruktur: Wie oben steht müssen Frontend and Backend gemeinsam in deiner Docker Instanz laufen. Hier ein Beispiel:
+Wie oben steht müssen Frontend and Backend gemeinsam in deiner Docker Instanz laufen. Hier ein Beispiel Projekt-Struktur:
 *(Bespiel nimmt an, dass Backend mit Node.js umgesetzt ist.)*
 ```
 project/
@@ -49,7 +49,7 @@ project/
 ```
 
 ### **Optionale Zusatz-Anforderung "Google Login":**
-Mit dieser optionalen Anforderung könnt ihr ausprobieren, eine Authentifizierung für eure App zu implementieren. Hier ein Beispiel, das ich für euch entwickelt habe: https://hello-world-app-848709590175.us-central1.run.app/ ((Login nur mit einem Google-Konto möglich. Siehe "Vorbereitung"). Die Applikation erkennt den eingeloggten Benutzer. Mit dieser Zusatzanforderung könnt ihr versuchen, etwas Ähnliches umzusetzen und sicherzustellen, dass jeder angemeldete Benutzer nur seine eigenen Aufgaben sehen und verwalten kann. Was braucht es dazu?
+Mit dieser optionalen Anforderung könnt ihr ausprobieren, eine Authentifizierung für eure App zu implementieren. Hier ein Beispiel, das ich für euch entwickelt habe: https://hello-world-app-848709590175.us-central1.run.app/ (Login nur mit einem Google-Konto möglich. Siehe "Vorbereitung"). Die Applikation erkennt den eingeloggten Benutzer. Mit dieser Zusatzanforderung könnt ihr versuchen, etwas Ähnliches umzusetzen und sicherzustellen, dass jeder angemeldete Benutzer nur seine eigenen Aufgaben sehen und verwalten kann. Was braucht es dazu?
 - Ein Firebase Projekt > https://console.firebase.google.com/
     - **Ein wichtiger Tipp**: Kein neues Projekt anlegen, sondern bestehendes Google Projekt verwenden, wo ihr eure App auf "Cloud Run" deployt. 
         > "Already have a Google Cloud project? Add Firebase to Google Cloud project"
