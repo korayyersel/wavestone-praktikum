@@ -13,14 +13,14 @@
 
 ### **Frontend**
 - **Technologien:** React, Angular oder Vue.js (freie Wahl)
-- **Environment:** Läuft in einer Docker-Instanz gemeinsam mit dem Backend. Die Docker-Instanz wird auf **Cloud Run** gehostet (https://cloud.google.com/run?hl=en).
+- **Environment:** Läuft in einem Docker-Container gemeinsam mit dem Backend. Der Docker-Container wird auf **Cloud Run** gehostet (https://cloud.google.com/run?hl=en).
 - **Aufgabe:**
   - Eine Benutzeroberfläche erstellen, um Aufgaben anzuzeigen und hinzuzufügen.
   - Über REST-Aufrufe mit dem Backend kommunizieren.
 
 ### **Backend**
 - **Technologien:** Node.js (Express.js) oder Java (Spring)
-- **Environment:** Läuft in derselben Docker-Instanz wie das Frontend, ebenfalls auf Cloud Run.
+- **Environment:** Läuft in demselben Docker-Container wie das Frontend, ebenfalls auf Cloud Run.
 - **Aufgabe:**
   - Eine RESTful API mit mindestens zwei Endpunkten bereitstellen:
     1. **GET /tasks:** Gibt eine Liste aller Aufgaben aus der MongoDB zurück.
@@ -34,7 +34,7 @@
 
 ## Docker
 
-Wie oben beschrieben, müssen Frontend und Backend gemeinsam in einer Docker-Instanz laufen.  
+Wie oben beschrieben, müssen Frontend und Backend gemeinsam in einem Docker-Container laufen.  
 Beispiel-Projektstruktur (Backend in Node.js):
 
 ```
