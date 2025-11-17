@@ -2,39 +2,41 @@
 
 ## Fachliche Anforderungen 
 
--   **Funktion:** Eine Web-App, in der Benutzer ihre Aufgaben erstellen, bearbeiten und als "erledigt" markieren können.
--   **Anforderungen:**
-    -   Aufgaben haben Felder wie Titel, Beschreibung, Priorität, und Fälligkeitsdatum.
-    -   Backend verwaltet Aufgaben in MongoDB und bietet APIs für CRUD-Operationen.
-    -   (optional) Benutzer können sich anmelden und können nur ihre Aufgaben verwalten.
-	    - Siehe "Optionale Zusatz-Anforderung "Google Login"
+- **Funktion:** Eine Web-App, in der Benutzer ihre Aufgaben erstellen, bearbeiten und als "erledigt" markieren können.
+- **Anforderungen:**
+  - Aufgaben haben Felder wie Titel, Beschreibung, Priorität und Fälligkeitsdatum.
+  - Das Backend verwaltet die Aufgaben in MongoDB und bietet APIs für CRUD-Operationen.
+  - (optional) Benutzer können sich anmelden und nur ihre eigenen Aufgaben verwalten.  
+    → Siehe "Optionale Zusatz-Anforderung 'Google Login'".
 
 ## Technische Anforderungen
-### **Frontend:**
--   **Technologien:** React, Angular, Vue.js (up to you)
--   **Environment:** Läuft in einer Docker-Instanz gemeinsam mit Backend. Docker Instanz wird auf "Cloud Run" (https://cloud.google.com/run?hl=en) gehostet.
--   **Aufgabe:**
-    -   Eine Benutzeroberfläche erstellen, um Daten anzuzeigen und hinzuzufügen.
-    -   Verwenden von REST-Aufrufen, um mit dem Backend zu kommunizieren.
 
-### **Backend:**
--   **Technologien:** Node.js (Express.js) oder Java (Spring)
--   **Environment:** Läuft in einer Docker-Instanz gemeinsam mit Frontend. Docker Instanz wird auf "Cloud Run" (https://cloud.google.com/run?hl=en) gehostet.
--   **Aufgabe:**
-    -   Eine RESTful API mit mindestens zwei Endpunkten bereitstellen:
-        1.  **GET /tasks:** Gibt eine Liste von gespeicherten Daten aus der MongoDB zurück.
-        2.  **POST /tasks:** Speichert neue Daten in der MongoDB.
+### **Frontend**
+- **Technologien:** React, Angular oder Vue.js (freie Wahl)
+- **Environment:** Läuft in einer Docker-Instanz gemeinsam mit dem Backend. Die Docker-Instanz wird auf **Cloud Run** gehostet (https://cloud.google.com/run?hl=en).
+- **Aufgabe:**
+  - Eine Benutzeroberfläche erstellen, um Aufgaben anzuzeigen und hinzuzufügen.
+  - Über REST-Aufrufe mit dem Backend kommunizieren.
 
-### **Datenbank:**
--   **Technologien:** MongoDB
--   **Environment:** Läuft bei MongoDB Atlas https://cloud.mongodb.com/
--   **Aufgabe:**
-    -   Eine Collection (z. B. `tasks`) erstellen, wo die Aufgaben gespeichert werden
+### **Backend**
+- **Technologien:** Node.js (Express.js) oder Java (Spring)
+- **Environment:** Läuft in derselben Docker-Instanz wie das Frontend, ebenfalls auf Cloud Run.
+- **Aufgabe:**
+  - Eine RESTful API mit mindestens zwei Endpunkten bereitstellen:
+    1. **GET /tasks:** Gibt eine Liste aller Aufgaben aus der MongoDB zurück.
+    2. **POST /tasks:** Speichert eine neue Aufgabe in der MongoDB.
 
+### **Datenbank**
+- **Technologien:** MongoDB
+- **Environment:** Bereitgestellt über MongoDB Atlas (https://cloud.mongodb.com/)
+- **Aufgabe:**
+  - Eine Collection (z. B. `tasks`) erstellen, in der die Aufgaben gespeichert werden.
 
-### **Docker**
-Wie oben steht müssen Frontend and Backend gemeinsam in deiner Docker Instanz laufen. Hier ein Beispiel Projekt-Struktur:
-*(Bespiel nimmt an, dass Backend mit Node.js umgesetzt ist.)*
+## Docker
+
+Wie oben beschrieben, müssen Frontend und Backend gemeinsam in einer Docker-Instanz laufen.  
+Beispiel-Projektstruktur (Backend in Node.js):
+
 ```
 project/
 ├── frontend/
@@ -47,19 +49,41 @@ project/
 └── docker-compose.yml        # Optional für lokale Entwicklung
 
 ```
+---
 
-### **Optionale Zusatz-Anforderung "Google Login":**
-Mit dieser optionalen Anforderung könnt ihr ausprobieren, eine Authentifizierung für eure App zu implementieren. Hier ein Beispiel, das ich für euch entwickelt habe: https://hello-world-app-848709590175.us-central1.run.app/ (Login nur mit einem Google-Konto möglich. Siehe "Vorbereitung"). Die Applikation erkennt den eingeloggten Benutzer. Mit dieser Zusatzanforderung könnt ihr versuchen, etwas Ähnliches umzusetzen und sicherzustellen, dass jeder angemeldete Benutzer nur seine eigenen Aufgaben sehen und verwalten kann. Was braucht es dazu?
-- Ein Firebase Projekt > https://console.firebase.google.com/
-    - **Ein wichtiger Tipp**: Kein neues Projekt anlegen, sondern bestehendes Google Projekt verwenden, wo ihr eure App auf "Cloud Run" deployt. 
-        > "Already have a Google Cloud project? Add Firebase to Google Cloud project"
-- Unter Projekt eine Webapplikation anlegen
-- "Add Firebase SDK": Wichtiger Schritt. Ihr müsst rausfinden, was ihr mit dieser Code machen müsst...
-- "Sign-in method" > Choose provider Google > "Enable"
+## Optionale Zusatz-Anforderung "Google Login"
+
+Mit dieser optionalen Aufgabe könnt ihr ausprobieren, eine einfache Authentifizierung zu implementieren.  
+Die Applikation erkennt den eingeloggten Benutzer und ermöglicht es, dass jeder Benutzer nur seine eigenen Aufgaben sehen und verwalten kann.
+
+Funktionsfähiges Beispiel (Demo Login):  
+**https://login-demo-bewerbung.web.app/**
+
+Was benötigt wird?
+
+- Ein Firebase-Projekt: https://console.firebase.google.com/  
+  **Wichtiger Hinweis:** Kein neues Projekt anlegen – verwendet das bestehende Google-Cloud-Projekt, das ihr später für das Cloud-Run-Deployment nutzt.  
+    > "Already have a Google Cloud project? Add Firebase to Google Cloud project"
+
+- Im Projekt eine Webapplikation registrieren
+
+- "Add Firebase SDK": Hier erhaltet ihr den Code-Abschnitt (firebaseConfig), den ihr im Frontend integrieren müsst.
+
+- Unter **Authentication → Sign-in method** den Provider **Google** auswählen und aktivieren.
+
+---
 
 ## Vorbereitung
-- Ein Google-Konto erstellen: Wichtig: Es ist nicht notwendig, eine Gmail-Adresse zu verwenden oder eine neue G-Mail-Adresse zu registrieren. Ein Google-Konto kann mit einer beliebigen bestehenden E-Mail-Adresse erstellt werden.
-Anleitung: Besuche accounts.google.com, wähle „Konto erstellen“ > ... > "Eigene E-Mail-Adresse verwenden".
-- Login / Registrierung bei https://console.cloud.google.com/
-	- Für die Registrierung bei Google Cloud Platform (GCP) ist eine Kreditkarte erforderlich. Hinweis: Die oben beschriebenen Aufgaben verursachen keine Kosten, da alles innerhalb des Free Tiers abgedeckt wird. GCP verlangt jedoch die Angabe einer Kreditkarte zur Verifizierung, selbst wenn ausschliesslich kostenlose Dienste genutzt werden.
-- Login / Registrierung bei https://cloud.mongodb.com/. Hier braucht es keine Kreditkarte. 
+
+- **Google-Konto erstellen:**  
+  Es ist nicht notwendig, eine Gmail-Adresse zu verwenden. Ein Google-Konto kann mit jeder bestehenden E-Mail-Adresse erstellt werden.  
+  Anleitung: accounts.google.com → „Konto erstellen“ → „Eigene E-Mail-Adresse verwenden“.
+
+- **Google Cloud Console:**  
+  Anmeldung unter https://console.cloud.google.com/  
+  Für die Registrierung wird eine Kreditkarte zur Verifizierung verlangt.  
+  Die oben genannten Aufgaben liegen jedoch vollständig im Free Tier und verursachen keine Kosten.
+
+- **MongoDB Atlas:**  
+  Anmeldung unter https://cloud.mongodb.com/  
+  Keine Kreditkarte erforderlich.
