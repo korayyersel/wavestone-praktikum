@@ -51,8 +51,7 @@ project/
 ```
 ---
 
-## Optionale Zusatz-Anforderung "Google Login"
-
+### **Optionale Zusatz-Anforderung "Google Login":**
 Mit dieser optionalen Aufgabe könnt ihr ausprobieren, eine einfache Authentifizierung zu implementieren.  
 Die Applikation erkennt den eingeloggten Benutzer und ermöglicht es, dass jeder Benutzer nur seine eigenen Aufgaben sehen und verwalten kann.
 
@@ -63,13 +62,21 @@ Was benötigt wird?
 
 - Ein Firebase-Projekt: https://console.firebase.google.com/  
   **Wichtiger Hinweis:** Kein neues Projekt anlegen – verwendet das bestehende Google-Cloud-Projekt, das ihr später für das Cloud-Run-Deployment nutzt.  
-    > "Already have a Google Cloud project? Add Firebase to Google Cloud project"
+    > „Already have a Google Cloud project? Add Firebase to Google Cloud project“
 
-- Im Projekt eine Webapplikation registrieren
+- Im bestehenden Projekt eine **Web-Applikation hinzufügen**:  
+  Links im Menü **Project Overview** → **App hinzufügen** → **Web** auswählen.  
+  Danach die App **registrieren** (App-Name frei wählbar).  
+  **Wichtig:** Beim Registrieren **kein Haken bei „Firebase Hosting einrichten“** setzen.
 
-- "Add Firebase SDK": Hier erhaltet ihr den Code-Abschnitt (firebaseConfig), den ihr im Frontend integrieren müsst.
+- Nach der Registrierung erhaltet ihr den **Firebase SDK Konfigurationsblock** (firebaseConfig).  
+  Dieser Block enthält `apiKey`, `authDomain`, `projectId` usw. und muss im Frontend eingebunden werden.
 
 - Unter **Authentication → Sign-in method** den Provider **Google** auswählen und aktivieren.
+
+- Zusätzlich sicherstellen, dass die verwendeten Domains unter  
+  **Authentication → Settings → Authorized domains** eingetragen sind  
+  (z. B. `localhost`, Cloud-Run-Domain, später die produktive Domain).
 
 ---
 
