@@ -64,19 +64,11 @@ Was benötigt wird?
   **Wichtiger Hinweis:** Kein neues Projekt anlegen – verwendet das bestehende Google-Cloud-Projekt, das ihr später für das Cloud-Run-Deployment nutzt.  
     > „Already have a Google Cloud project? Add Firebase to Google Cloud project“
 
-- Im bestehenden Projekt eine **Web-Applikation hinzufügen**:  
-  Links im Menü **Project Overview** → **App hinzufügen** → **Web** auswählen.  
-  Danach die App **registrieren** (App-Name frei wählbar).  
-  **Wichtig:** Beim Registrieren **kein Haken bei „Firebase Hosting einrichten“** setzen.
+- Im bestehenden Projekt eine **Web-Applikation hinzufügen**
 
-- Nach der Registrierung erhaltet ihr den **Firebase SDK Konfigurationsblock** (firebaseConfig).  
-  Dieser Block enthält `apiKey`, `authDomain`, `projectId` usw. und muss im Frontend eingebunden werden.
+- Nach der Registrierung erhaltet ihr den **Firebase SDK Konfigurationsblock** (firebaseConfig). Ihr müsst jetzt herausfinden, was ihr mit diesem Block machen sollt.
 
 - Unter **Authentication → Sign-in method** den Provider **Google** auswählen und aktivieren.
-
-- Zusätzlich sicherstellen, dass die verwendeten Domains unter  
-  **Authentication → Settings → Authorized domains** eingetragen sind  
-  (z. B. `localhost`, Cloud-Run-Domain, später die produktive Domain).
 
 ---
 
